@@ -18,7 +18,6 @@
       --card-bg: rgba(20,10,5,0.82);
       --text: #f0e6d3;
       --muted: rgba(240,230,211,0.5);
-      --bg-img: url('https://i.imgur.com/8I0PjjL.jpeg');
     }
     body {
       min-height: 100vh;
@@ -30,14 +29,13 @@
     }
     .bg {
       position: fixed; top:0; left:0; width:100%; height:100%;
-      background-image: var(--bg-img);
+      background-image: url('https://i.imgur.com/8I0PjjL.jpeg');
       background-size: cover; background-position: center;
       opacity: 0.35; z-index: 0;
     }
     .view { display: none; min-height: 100vh; position: relative; z-index: 1; }
     .view.active { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; }
 
-    /* LOGIN */
     .login-title { font-family: 'Noto Serif SC', serif; font-size: 26px; letter-spacing: 5px; color: var(--text); margin-bottom: 4px; text-align: center; }
     .login-sub { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; text-align: center; }
     .card { background: var(--card-bg); border: 1px solid var(--gold2); border-radius: 12px; padding: 32px 28px; width: 100%; max-width: 380px; }
@@ -68,26 +66,25 @@
     .btn.small { padding: 10px; font-size: 11px; margin-top: 10px; }
     .error-msg { font-size: 11px; color: #c0392b; letter-spacing: 1px; text-align: center; margin-top: 12px; display: none; }
 
-    /* SCANNER VIEW */
-    #scannerView { justify-content: flex-start; padding-top: 0; }
+    #scannerView { justify-content: flex-start; padding: 0; }
     .scanner-header {
       width: 100%; background: rgba(20,10,5,0.92);
       border-bottom: 1px solid var(--gold2);
       padding: 14px 20px;
       display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
     }
     .scanner-header-info { display: flex; flex-direction: column; }
     .scanner-role { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
     .scanner-name { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--text); letter-spacing: 2px; }
     .logout-btn {
       font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--muted); background: none; border: none; cursor: pointer;
+      color: var(--muted); background: none; cursor: pointer;
       font-family: 'Montserrat', sans-serif; padding: 6px 10px;
       border: 1px solid rgba(200,169,110,0.2); border-radius: 6px;
     }
-    .scanner-body { width: 100%; max-width: 420px; padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .scanner-body { width: 100%; max-width: 420px; padding: 16px; flex: 1; display: flex; flex-direction: column; align-self: center; }
 
-    /* SESSION SELECTOR */
     .session-selector { display: none; margin-bottom: 14px; }
     .session-selector.show { display: block; }
     .session-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
@@ -99,22 +96,18 @@
       border-radius: 8px; color: var(--muted);
       font-family: 'Montserrat', sans-serif;
       font-size: 11px; font-weight: 600;
-      letter-spacing: 1px; cursor: pointer;
-      transition: all 0.2s;
+      letter-spacing: 1px; cursor: pointer; transition: all 0.2s;
     }
     .session-btn.active { background: rgba(200,169,110,0.25); border-color: var(--gold); color: var(--gold); }
 
-    /* READER */
     #reader {
       width: 100%; border-radius: 12px; overflow: hidden;
-      border: 1px solid var(--gold2);
-      background: #000; margin-bottom: 12px;
+      border: 1px solid var(--gold2); background: #000; margin-bottom: 12px;
     }
     #reader video { width: 100% !important; }
     #reader img { display: none !important; }
     .scan-hint { font-size: 11px; color: var(--muted); text-align: center; letter-spacing: 1px; margin-bottom: 14px; }
 
-    /* RESULT CARD */
     .result-card {
       display: none; background: var(--card-bg);
       border: 1px solid var(--gold2); border-radius: 12px;
@@ -122,10 +115,7 @@
     }
     .result-card.show { display: block; }
     .result-icon { font-size: 48px; margin-bottom: 10px; }
-    .result-status {
-      font-size: 10px; font-weight: 600; letter-spacing: 3px;
-      text-transform: uppercase; margin-bottom: 16px;
-    }
+    .result-status { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
     .result-status.success { color: var(--gold); }
     .result-status.warning { color: #e67e22; }
     .result-status.error { color: #c0392b; }
@@ -137,59 +127,54 @@
     .result-event { font-size: 9px; color: rgba(240,230,211,0.25); letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; }
     .countdown { font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-top: 10px; }
 
-    /* STATUS VIEW */
-    #statusView { justify-content: flex-start; padding-top: 0; }
+    #statusView { justify-content: flex-start; padding: 0; }
     .status-header {
       width: 100%; background: rgba(20,10,5,0.92);
       border-bottom: 1px solid var(--gold2);
       padding: 14px 20px;
       display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
     }
-    .status-body { width: 100%; max-width: 500px; padding: 16px; }
+    .status-body { width: 100%; max-width: 500px; padding: 16px; align-self: center; overflow-y: auto; }
     .status-section { margin-bottom: 20px; }
     .status-section-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .stat-row { display: flex; gap: 10px; margin-bottom: 10px; }
-    .stat-box { flex: 1; background: var(--card-bg); border: 1px solid var(--gold2); border-radius: 8px; padding: 14px; text-align: center; }
+    .stat-row { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .stat-box { flex: 1; min-width: 80px; background: var(--card-bg); border: 1px solid var(--gold2); border-radius: 8px; padding: 14px; text-align: center; }
     .stat-num { font-family: 'Noto Serif SC', serif; font-size: 28px; color: var(--text); }
     .stat-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
     .person-row { background: var(--card-bg); border: 1px solid var(--gold2); border-radius: 8px; padding: 12px 14px; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; }
     .person-name { font-family: 'Noto Serif SC', serif; font-size: 14px; color: var(--text); letter-spacing: 2px; }
-    .person-status { font-size: 9px; letter-spacing: 1px; }
-    .person-status.checked { color: var(--gold); }
-    .person-status.not-checked { color: rgba(240,230,211,0.3); }
-    .export-btn { width: 100%; margin-top: 10px; }
+    .person-status.checked { color: var(--gold); font-size: 9px; letter-spacing: 1px; }
+    .person-status.not-checked { color: rgba(240,230,211,0.3); font-size: 9px; letter-spacing: 1px; }
 
-    /* NAV TABS */
     .nav-tabs {
-      width: 100%; display: flex;
+      width: 100%; display: none;
       background: rgba(20,10,5,0.92);
       border-top: 1px solid var(--gold2);
-      position: fixed; bottom: 0; left: 0;
+      position: fixed; bottom: 0; left: 0; z-index: 100;
     }
+    .nav-tabs.show { display: flex; }
     .nav-tab {
       flex: 1; padding: 12px 0;
       background: none; border: none;
       color: var(--muted); font-family: 'Montserrat', sans-serif;
       font-size: 10px; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase; cursor: pointer;
-      transition: color 0.2s;
+      text-transform: uppercase; cursor: pointer; transition: color 0.2s;
     }
     .nav-tab.active { color: var(--gold); }
+    .has-nav { padding-bottom: 56px !important; }
 
-    /* LOADING */
     .loading { position: fixed; inset: 0; background: rgba(10,5,2,0.7); display: none; align-items: center; justify-content: center; z-index: 999; }
     .loading.show { display: flex; }
     .spinner { width: 36px; height: 36px; border: 2px solid var(--gold2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    .has-nav { padding-bottom: 56px; }
   </style>
 </head>
 <body>
 <div class="bg"></div>
 <div class="loading" id="loading"><div class="spinner"></div></div>
 
-<!-- LOGIN VIEW -->
+<!-- LOGIN -->
 <div class="view active" id="loginView">
   <div class="login-title">寻昔纪远</div>
   <div class="login-sub">Culture Camp 2026 · Check-in System</div>
@@ -201,8 +186,8 @@
   </div>
 </div>
 
-<!-- SCANNER VIEW -->
-<div class="view has-nav" id="scannerView">
+<!-- SCANNER -->
+<div class="view" id="scannerView">
   <div class="scanner-header">
     <div class="scanner-header-info">
       <div class="scanner-role" id="roleLabel"></div>
@@ -210,8 +195,7 @@
     </div>
     <button class="logout-btn" onclick="doLogout()">Logout</button>
   </div>
-  <div class="scanner-body">
-    <!-- Session selector for team leaders -->
+  <div class="scanner-body has-nav" id="scannerBody">
     <div class="session-selector" id="sessionSelector">
       <div class="session-label">Select Session</div>
       <div class="session-btns">
@@ -220,7 +204,7 @@
       </div>
     </div>
     <div id="reader"></div>
-    <div class="scan-hint" id="scanHint">Point camera at QR Code</div>
+    <div class="scan-hint" id="scanHint">Initialising camera...</div>
     <div class="result-card" id="resultCard">
       <div class="result-icon" id="resultIcon"></div>
       <div class="result-status" id="resultStatus"></div>
@@ -234,14 +218,10 @@
     </div>
     <button class="btn small" onclick="resumeScanner()" id="resumeBtn" style="display:none">Scan Next</button>
   </div>
-  <div class="nav-tabs" id="navTabs" style="display:none">
-    <button class="nav-tab active" id="tabScan" onclick="switchTab('scan')">Scan</button>
-    <button class="nav-tab" id="tabStatus" onclick="switchTab('status')">Status</button>
-  </div>
 </div>
 
-<!-- STATUS VIEW -->
-<div class="view has-nav" id="statusView">
+<!-- STATUS -->
+<div class="view" id="statusView">
   <div class="status-header">
     <div class="scanner-header-info">
       <div class="scanner-role" id="roleLabel2"></div>
@@ -249,30 +229,27 @@
     </div>
     <button class="logout-btn" onclick="doLogout()">Logout</button>
   </div>
-  <div class="status-body" id="statusBody">
-    <div style="text-align:center; padding: 40px 0; color: var(--muted); font-size:12px; letter-spacing:1px;">Loading...</div>
-  </div>
-  <div class="nav-tabs">
-    <button class="nav-tab" id="tabScan2" onclick="switchTab('scan')">Scan</button>
-    <button class="nav-tab active" id="tabStatus2" onclick="switchTab('status')">Status</button>
+  <div class="status-body has-nav" id="statusBody">
+    <div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;letter-spacing:1px;">Loading...</div>
   </div>
 </div>
 
+<!-- NAV -->
+<div class="nav-tabs" id="navTabs">
+  <button class="nav-tab active" id="tabScan" onclick="switchTab('scan')">Scan</button>
+  <button class="nav-tab" id="tabStatus" onclick="switchTab('status')">Status</button>
+</div>
+
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/library/d/1sEMVRX1brvNzbU6sLxnlrPzzQPGgZHAQNeUKJmFYSHDt1PUEXwUULerh/14";
-const BG_URL = "https://i.imgur.com/8I0PjjL.jpeg";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwNniD-7Uwpus7k-ZhWTrGZpeh60qVilmWthAvlXtvkwks5WSXOQrTm1WcVaQCpsQ4A/exec";
 
-let currentRole = null;
-let currentKey = null;
-let currentRoleName = null;
-let currentPin = null;
+let currentRole = null, currentKey = null, currentRoleName = null, currentPin = null;
 let selectedSession = 'morning';
-let qrScanner = null;
-let scannerRunning = false;
+let qrScanner = null, scannerRunning = false;
 let countdownTimer = null;
-let resumeTimer = null;
+let _statusDoc = null;
 
-// ── LOGIN ──────────────────────────────────────────────
+// LOGIN
 document.getElementById('pinInput').addEventListener('keypress', e => { if (e.key === 'Enter') doLogin(); });
 
 async function doLogin() {
@@ -280,7 +257,7 @@ async function doLogin() {
   if (!pin) return;
   showLoading(true);
   try {
-    const res = await postAPI({ action: 'verify_pin', pin });
+    const res = await getAPI({ action: 'verify_pin', pin });
     showLoading(false);
     if (res.success) {
       currentRole = res.role;
@@ -289,6 +266,7 @@ async function doLogin() {
       currentPin = pin;
       enterApp();
     } else {
+      document.getElementById('loginError').textContent = 'Invalid PIN. Please try again.';
       document.getElementById('loginError').style.display = 'block';
     }
   } catch(e) {
@@ -300,31 +278,32 @@ async function doLogin() {
 
 function enterApp() {
   const roleMap = { admin: 'Admin', registration: 'Registration', team: 'Team Leader' };
-  document.getElementById('roleLabel').textContent = roleMap[currentRole] || currentRole;
+  const roleText = roleMap[currentRole] || currentRole;
+  document.getElementById('roleLabel').textContent = roleText;
   document.getElementById('nameLabel').textContent = currentRoleName;
-  document.getElementById('roleLabel2').textContent = roleMap[currentRole] || currentRole;
+  document.getElementById('roleLabel2').textContent = roleText;
   document.getElementById('nameLabel2').textContent = currentRoleName;
 
-  // Show session selector only for team leaders
   if (currentRole === 'team') {
     document.getElementById('sessionSelector').classList.add('show');
-    document.getElementById('navTabs').style.display = 'flex';
-  } else if (currentRole === 'admin') {
-    document.getElementById('navTabs').style.display = 'flex';
+  }
+
+  if (currentRole === 'admin' || currentRole === 'team' || currentRole === 'registration') {
+    document.getElementById('navTabs').classList.add('show');
   }
 
   showView('scannerView');
   startScanner();
 }
 
-// ── SESSION ────────────────────────────────────────────
+// SESSION
 function selectSession(s) {
   selectedSession = s;
   document.getElementById('btnMorning').classList.toggle('active', s === 'morning');
   document.getElementById('btnAfternoon').classList.toggle('active', s === 'afternoon');
 }
 
-// ── SCANNER ────────────────────────────────────────────
+// SCANNER
 function startScanner() {
   if (scannerRunning) return;
   qrScanner = new Html5Qrcode('reader');
@@ -337,7 +316,7 @@ function startScanner() {
     scannerRunning = true;
     document.getElementById('scanHint').textContent = 'Point camera at QR Code';
   }).catch(err => {
-    document.getElementById('scanHint').textContent = 'Camera unavailable: ' + err;
+    document.getElementById('scanHint').textContent = 'Camera error: ' + err;
   });
 }
 
@@ -349,14 +328,11 @@ function stopScanner() {
 
 function onScanSuccess(decodedText) {
   if (qrScanner && scannerRunning) qrScanner.pause();
-  document.getElementById('resultCard').classList.remove('show');
-  document.getElementById('resumeBtn').style.display = 'none';
   processQR(decodedText);
 }
 
 async function processQR(raw) {
   let id = raw.trim();
-  // If it's a full URL, extract ?id= param
   try {
     const u = new URL(raw);
     const paramId = u.searchParams.get('id');
@@ -367,12 +343,8 @@ async function processQR(raw) {
   try {
     let params = { id };
     if (currentRole === 'admin') params.action = 'checkin_crew';
-    else if (currentRole === 'registration') params.action = 'checkin_participant';
-    else if (currentRole === 'team') {
-      params.action = 'checkin_team';
-      params.pin = currentPin;
-      params.session_type = selectedSession;
-    }
+    else if (currentRole === 'registration') { params.action = 'checkin_participant'; params.pin = currentPin; }
+    else if (currentRole === 'team') { params.action = 'checkin_team'; params.pin = currentPin; params.session_type = selectedSession; }
 
     const url = buildURL(params);
     const res = await fetch(url);
@@ -400,15 +372,11 @@ function parseAndShowResult(html) {
   const nameEN = doc.querySelector('.name-en')?.textContent?.trim() || '';
   const role = doc.querySelector('.role')?.textContent?.trim() || '';
   const detail = doc.querySelector('.detail')?.textContent?.trim() || '';
-
   const isSuccess = icon.includes('✅');
   const isWarn = icon.includes('⚠️');
   const cls = isSuccess ? 'success' : isWarn ? 'warning' : 'error';
   showResult(icon, cls, status, nameCN, nameEN, role, detail);
-
-  if (isSuccess) {
-    startCountdown(4);
-  }
+  if (isSuccess) startCountdown(4);
 }
 
 function showResult(icon, cls, status, nameCN, nameEN, role, detail) {
@@ -430,13 +398,8 @@ function startCountdown(sec) {
   document.getElementById('countdown').textContent = `Resuming in ${n}s...`;
   countdownTimer = setInterval(() => {
     n--;
-    if (n <= 0) {
-      clearInterval(countdownTimer);
-      document.getElementById('countdown').textContent = '';
-      resumeScanner();
-    } else {
-      document.getElementById('countdown').textContent = `Resuming in ${n}s...`;
-    }
+    if (n <= 0) { clearInterval(countdownTimer); document.getElementById('countdown').textContent = ''; resumeScanner(); }
+    else document.getElementById('countdown').textContent = `Resuming in ${n}s...`;
   }, 1000);
 }
 
@@ -445,14 +408,11 @@ function resumeScanner() {
   document.getElementById('countdown').textContent = '';
   document.getElementById('resultCard').classList.remove('show');
   document.getElementById('resumeBtn').style.display = 'none';
-  if (qrScanner && scannerRunning) {
-    qrScanner.resume();
-  } else {
-    startScanner();
-  }
+  if (qrScanner && scannerRunning) qrScanner.resume();
+  else startScanner();
 }
 
-// ── STATUS ─────────────────────────────────────────────
+// STATUS
 async function loadStatus() {
   document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;letter-spacing:1px;">Loading...</div>';
   try {
@@ -460,112 +420,86 @@ async function loadStatus() {
     if (currentRole === 'admin') url = buildURL({ action: 'dashboard', pin: currentPin });
     else if (currentRole === 'registration') url = buildURL({ action: 'status_registration', pin: currentPin });
     else if (currentRole === 'team') url = buildURL({ action: 'status_team', pin: currentPin });
-
     const res = await fetch(url);
     const html = await res.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
-
+    _statusDoc = doc;
     if (currentRole === 'team') renderTeamStatus(doc);
     else renderTableStatus(doc);
   } catch(e) {
-    document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:#c0392b;font-size:12px;">Failed to load status.</div>';
+    document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:#c0392b;font-size:12px;">Failed to load.</div>';
   }
 }
 
 function renderTeamStatus(doc) {
   const rows = doc.querySelectorAll('tbody tr');
-  const headers = doc.querySelectorAll('thead th');
-  if (!rows.length) {
-    document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;">No data.</div>';
-    return;
-  }
+  const headers = Array.from(doc.querySelectorAll('thead th'));
+  if (!rows.length) { document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;">No data.</div>'; return; }
 
-  // Count check-ins per session
   const sessions = [];
   headers.forEach((h, i) => { if (i >= 8) sessions.push({ name: h.textContent, col: i }); });
-
-  let html = `<div class="status-section">`;
   const today = getTodayKey();
   const todaySessions = sessions.filter(s => isSessionToday(s.name, today));
 
+  let html = '<div class="status-section">';
   if (todaySessions.length) {
-    html += `<div class="status-section-title">Today's Sessions</div><div class="stat-row">`;
+    html += '<div class="status-section-title">Today</div><div class="stat-row">';
     todaySessions.forEach(s => {
-      let checked = 0;
-      rows.forEach(r => { const cells = r.querySelectorAll('td'); if (cells[s.col]?.textContent?.trim()) checked++; });
-      html += `<div class="stat-box"><div class="stat-num">${checked}/${rows.length}</div><div class="stat-label">${s.name}</div></div>`;
+      let n = 0;
+      rows.forEach(r => { const c = r.querySelectorAll('td'); if (c[s.col]?.textContent?.trim()) n++; });
+      html += `<div class="stat-box"><div class="stat-num">${n}/${rows.length}</div><div class="stat-label">${s.name}</div></div>`;
     });
-    html += `</div>`;
+    html += '</div>';
   }
-
-  html += `<div class="status-section-title" style="margin-top:16px">Team Members</div>`;
+  html += '<div class="status-section-title" style="margin-top:16px">Members</div>';
   rows.forEach(r => {
-    const cells = r.querySelectorAll('td');
-    if (!cells.length) return;
-    const nameCN = cells[1]?.textContent || '';
-    const nameEN = cells[2]?.textContent || '';
-    const todayChecked = todaySessions.some(s => cells[s.col]?.textContent?.trim());
-    html += `<div class="person-row">
-      <div>
-        <div class="person-name">${nameCN}</div>
-        <div style="font-size:10px;color:var(--muted);letter-spacing:1px;">${nameEN}</div>
-      </div>
-      <div class="person-status ${todayChecked ? 'checked' : 'not-checked'}">${todayChecked ? '✓ Checked In' : 'Not Yet'}</div>
-    </div>`;
+    const c = r.querySelectorAll('td');
+    if (!c.length) return;
+    const nameCN = c[1]?.textContent || '';
+    const nameEN = c[2]?.textContent || '';
+    const checked = todaySessions.some(s => c[s.col]?.textContent?.trim());
+    html += `<div class="person-row"><div><div class="person-name">${nameCN}</div><div style="font-size:10px;color:var(--muted);letter-spacing:1px;">${nameEN}</div></div><div class="person-status ${checked ? 'checked' : 'not-checked'}">${checked ? '✓ Checked In' : 'Not Yet'}</div></div>`;
   });
-  html += `</div>`;
-
-  html += `<button class="btn export-btn" onclick="exportTableData()">Export CSV</button>`;
+  html += '</div>';
+  html += '<button class="btn" style="margin-top:10px" onclick="exportCSV()">Export CSV</button>';
   document.getElementById('statusBody').innerHTML = html;
 }
 
 function renderTableStatus(doc) {
   const rows = doc.querySelectorAll('tbody tr');
-  const headers = doc.querySelectorAll('thead th');
-  if (!rows.length) {
-    document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;">No data.</div>';
-    return;
-  }
+  const headers = Array.from(doc.querySelectorAll('thead th'));
+  if (!rows.length) { document.getElementById('statusBody').innerHTML = '<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:12px;">No data.</div>'; return; }
 
-  // Summary stats
   const sessionCols = [];
   headers.forEach((h, i) => { if (i >= 8) sessionCols.push({ name: h.textContent, col: i }); });
+  const today = getTodayKey();
+  const todayCols = sessionCols.filter(s => isSessionToday(s.name, today));
 
-  let html = `<div class="status-section">`;
-  html += `<div class="status-section-title">Overview</div><div class="stat-row">`;
+  let html = '<div class="status-section"><div class="status-section-title">Overview</div><div class="stat-row">';
   html += `<div class="stat-box"><div class="stat-num">${rows.length}</div><div class="stat-label">Total</div></div>`;
-  if (sessionCols.length > 0) {
-    const today = getTodayKey();
-    const todayCols = sessionCols.filter(s => isSessionToday(s.name, today));
-    todayCols.forEach(s => {
-      let n = 0;
-      rows.forEach(r => { const c = r.querySelectorAll('td'); if (c[s.col]?.textContent?.trim()) n++; });
-      html += `<div class="stat-box"><div class="stat-num">${n}</div><div class="stat-label">${s.name}</div></div>`;
-    });
-  }
-  html += `</div></div>`;
-
-  html += `<button class="btn export-btn" onclick="exportTableData()">Export CSV</button>`;
+  todayCols.forEach(s => {
+    let n = 0;
+    rows.forEach(r => { const c = r.querySelectorAll('td'); if (c[s.col]?.textContent?.trim()) n++; });
+    html += `<div class="stat-box"><div class="stat-num">${n}</div><div class="stat-label">${s.name}</div></div>`;
+  });
+  html += '</div></div>';
+  html += '<button class="btn" style="margin-top:10px" onclick="exportCSV()">Export CSV</button>';
   document.getElementById('statusBody').innerHTML = html;
-  window._statusDoc = doc;
 }
 
 function getTodayKey() {
   const now = new Date();
-  const m = now.getMonth() + 1;
-  const d = now.getDate();
-  return `${d}/${m}`;
+  return `${now.getDate()}/${now.getMonth() + 1}`;
 }
 
 function isSessionToday(sessionName, todayKey) {
   return sessionName.includes(todayKey) || sessionName.toLowerCase().includes('testing');
 }
 
-function exportTableData() {
-  const doc = window._statusDoc;
-  if (!doc) return;
-  const rows = doc.querySelectorAll('table tr');
+function exportCSV() {
+  if (!_statusDoc) return;
+  const rows = _statusDoc.querySelectorAll('table tr');
   let csv = '';
   rows.forEach(r => {
     const cells = Array.from(r.querySelectorAll('th,td')).map(c => `"${c.textContent.replace(/"/g,'""')}"`);
@@ -578,27 +512,19 @@ function exportTableData() {
   a.click();
 }
 
-// ── NAVIGATION ─────────────────────────────────────────
+// TABS
 function switchTab(tab) {
   if (tab === 'scan') {
     showView('scannerView');
     if (!scannerRunning) startScanner();
     document.getElementById('tabScan').classList.add('active');
     document.getElementById('tabStatus').classList.remove('active');
-    if (document.getElementById('tabScan2')) {
-      document.getElementById('tabScan2').classList.remove('active');
-      document.getElementById('tabStatus2').classList.remove('active');
-    }
   } else {
     showView('statusView');
     stopScanner();
     loadStatus();
-    document.getElementById('tabStatus2').classList.add('active');
-    document.getElementById('tabScan2').classList.remove('active');
-    if (document.getElementById('tabScan')) {
-      document.getElementById('tabScan').classList.remove('active');
-      document.getElementById('tabStatus').classList.remove('active');
-    }
+    document.getElementById('tabStatus').classList.add('active');
+    document.getElementById('tabScan').classList.remove('active');
   }
 }
 
@@ -609,23 +535,22 @@ function showView(id) {
 
 function doLogout() {
   stopScanner();
+  clearInterval(countdownTimer);
   currentRole = null; currentKey = null; currentRoleName = null; currentPin = null;
   document.getElementById('pinInput').value = '';
   document.getElementById('loginError').style.display = 'none';
   document.getElementById('resultCard').classList.remove('show');
+  document.getElementById('resumeBtn').style.display = 'none';
   document.getElementById('sessionSelector').classList.remove('show');
-  document.getElementById('navTabs').style.display = 'none';
-  clearInterval(countdownTimer);
+  document.getElementById('navTabs').classList.remove('show');
   showView('loginView');
 }
 
-// ── API ────────────────────────────────────────────────
-async function postAPI(data) {
-  const res = await fetch(WEB_APP_URL, {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: { 'Content-Type': 'application/json' }
-  });
+// API
+async function getAPI(params) {
+  const u = new URL(WEB_APP_URL);
+  Object.entries(params).forEach(([k,v]) => u.searchParams.set(k, v));
+  const res = await fetch(u.toString());
   return res.json();
 }
 
